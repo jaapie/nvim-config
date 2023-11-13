@@ -1,5 +1,5 @@
 # nvim-config
-This is an almost 1-to-1 copy of my old ViM configuration from my (dotfiles)[https://github.com/jaapie/dotfiles]
+This is an almost 1-to-1 copy of my old ViM configuration from my [dotfiles](https://github.com/jaapie/dotfiles)
 repository. It adds LSP for ruby and tailwindcss, and uses a number of Tim Pope and Wincent plugins.
 
 ## Thanks
