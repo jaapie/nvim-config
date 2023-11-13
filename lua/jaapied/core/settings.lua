@@ -1,0 +1,54 @@
+vim.opt.autoindent = true
+vim.opt.autoread = true
+vim.opt.background = 'dark'
+vim.opt.backspace = { 'indent', 'eol', 'start' }
+vim.opt.backup = false
+vim.opt.breakat:append(' ')
+vim.opt.breakindent = true
+vim.opt.colorcolumn = '120'
+vim.opt.cursorline = true
+vim.opt.diffopt:append('algorithm:patience')
+vim.opt.encoding = 'utf8'
+vim.opt.errorbells = false
+vim.opt.expandtab = true
+vim.opt.foldmethod = 'manual'
+vim.opt.formatoptions = 'cqrj'
+vim.opt.hidden = true
+vim.opt.history = 500
+vim.opt.hlsearch = true
+vim.opt.inccommand = 'nosplit'
+vim.opt.incsearch = true
+vim.opt.incsearch = true
+vim.opt.laststatus = 2
+vim.opt.linebreak = true
+vim.opt.list = false
+vim.opt.listchars = { tab = '▸ ', trail = '·', extends = '#', nbsp = '·' }
+vim.opt.magic = true
+vim.opt.mat = 2
+vim.opt.modeline = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.ruler = true
+vim.opt.scrolloff = 2
+vim.opt.shiftround = true
+vim.opt.shiftwidth = 2
+vim.opt.showbreak = '↳ '
+vim.opt.showcmd = true
+vim.opt.smartcase = true
+vim.opt.smartindent = true
+vim.opt.smarttab = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.swapfile = false
+vim.opt.tabstop = 2
+vim.opt.termguicolors = true
+vim.opt.timeout = true
+vim.opt.timeoutlen = 500
+vim.opt.ttimeoutlen = 100
+vim.opt.tw = 118
+vim.opt.undofile = false
+vim.opt.visualbell = false
+vim.opt.whichwrap:append("<,>,h,l")
+vim.opt.wrap = false
+vim.opt.wrap = true
+vim.opt.writebackup = false
