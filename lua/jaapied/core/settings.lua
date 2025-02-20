@@ -50,5 +50,4 @@ vim.opt.undofile = false
 vim.opt.visualbell = false
 vim.opt.whichwrap:append("<,>,h,l")
 vim.opt.wrap = false
-vim.opt.wrap = true
 vim.opt.writebackup = false

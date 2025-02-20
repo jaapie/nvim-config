@@ -18,9 +18,6 @@ vim.keymap.set('i', '<right>', '<nop>', keymap_opts)
 vim.keymap.set('c', '<C-a>', '<Home>', keymap_opts)
 vim.keymap.set('c', '<C-e>', '<End>', keymap_opts)
 
-vim.keymap.set('n', '<C-p>', ':CommandTFind<cr>', keymap_opts)
-vim.keymap.set('n', '<C-b>', ':CommandTBuffer<cr>', keymap_opts)
-
 vim.keymap.set('i', '(<cr>', '(<cr>)<c-o>O')
 vim.keymap.set('i', '{<cr>', '{<cr>}<c-o>O')
 vim.keymap.set('i', '[<cr>', '[<cr>]<c-o>O')
@@ -31,6 +28,7 @@ vim.keymap.set('n', '<c-h>', '<c-w>h', keymap_opts)
 vim.keymap.set('n', '<c-j>', '<c-w>j', keymap_opts)
 vim.keymap.set('n', '<c-k>', '<c-w>k', keymap_opts)
 vim.keymap.set('n', '<c-l>', '<c-w>l', keymap_opts)
+vim.keymap.set('n', '<Leader>e', ":'<,'>lua<cr>", keymap_opts)
 
 vim.keymap.set({ 'n', 'v', 'o' }, '<leader>t', ':call RunCurrentSpecFile()<CR>', keymap_opts)
 vim.keymap.set({ 'n', 'v', 'o' }, '<leader>s', ':call RunNearestSpec()<CR>', keymap_opts)
@@ -38,3 +36,5 @@ vim.keymap.set({ 'n', 'v', 'o' }, '<leader>l', ':call RunLastSpec()<CR>', keymap
 vim.keymap.set({ 'n', 'v', 'o' }, '<leader>a', ':call RunAllSpecs()<CR>', keymap_opts)
 
 vim.keymap.set({ 'n', 'v', 'o' }, '<leader>n', ':A<CR>', keymap_opts)
+
+

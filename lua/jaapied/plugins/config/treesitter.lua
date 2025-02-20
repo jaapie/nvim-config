@@ -1,0 +1,32 @@
+return {
+	-- 'nvim-treesitter/nvim-treesitter',
+  -- -- dependencies = {
+  -- --   "nvim-treesitter/nvim-treesitter-textobjects",
+  -- -- },
+	-- build = ":TSUpdate",
+  -- config = function()
+    -- local config = require("nvim-treesitter.configs")
+    -- config.setup({
+      -- auto_install = true,
+      -- ensure_installed = {
+        -- "bash",
+        -- "ruby",
+        -- "html",
+        -- "css",
+        -- "scss",
+        -- "javascript",
+        -- "json",
+        -- "lua",
+      -- },
+      -- highlight = { enable = true },
+      -- indent = { enable = false },
+    -- })
+
+    -- vim.api.nvim_create_autocmd('FileType', {
+      -- pattern = { 'lua', 'vim', 'bash' },
+      -- callback = function()
+        -- vim.treesitter.start()
+      -- end
+    -- })
+  -- end
+}
