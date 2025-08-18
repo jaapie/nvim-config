@@ -36,6 +36,14 @@ return {
             }
           }
         },
+        settings = {
+          rubyLsp = {
+            -- Enable Rails-specific features
+            enabledFeatures = {
+              rails = true,
+            }
+          }
+        }
       })
 
       -- lspconfig.solargraph.setup({
