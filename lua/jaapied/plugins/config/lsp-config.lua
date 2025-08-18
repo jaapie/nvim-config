@@ -50,10 +50,12 @@ return {
       --   capabilities = capabilities
       -- })
 
-      lspconfig.sorbet.setup({
-        capabilities = capabilities,
-        cmd = { "srb", "tc", "--disable-watchman", "--lsp",  vim.fs.root(0, {".git", "Gemfile", "sorbet/config"})},
-      })
+      if vim.fs.root(0, {'sorbet/config'}) then
+        lspconfig.sorbet.setup({
+          capabilities = capabilities,
+          cmd = { "bundle", "exec", "srb", "tc", "--disable-watchman", "--lsp",  vim.fs.root(0, {".git", "Gemfile", "sorbet/config"})},
+        })
+      end
 
       lspconfig.html.setup({
         capabilities = capabilities,
