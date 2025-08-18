@@ -10,7 +10,6 @@ return {
   { 'tpope/vim-dispatch', lazy = false },
   { 'tpope/vim-markdown' },
   { 'tpope/vim-projectionist', lazy = false },
-  { 'tpope/vim-endwise', lazy = false },
   {
     'vim-ruby/vim-ruby',
     lazy = false,
@@ -28,6 +27,7 @@ return {
       -- vim.g.ruby_fold = 0
     end
   },
+  { 'tpope/vim-endwise', lazy = false },
   { 'tpope/vim-bundler' },
   { 'tpope/vim-rails', lazy = false },
   { 'tpope/vim-ragtag', lazy = false },
