@@ -1,6 +1,6 @@
 local pinnacle = require('wincent.pinnacle')
 
-vim.cmd('colorscheme base16-monokai')
+-- vim.cmd('colorscheme base16-monokai')
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
 -- local dark = vim.o.background == 'dark'

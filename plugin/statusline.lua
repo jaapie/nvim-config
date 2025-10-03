@@ -79,8 +79,9 @@ local function update_highlight()
   })
 
   -- Right-hand side section.
-  rhs_bg = pinnacle.fg('Cursor')
-  rhs_fg = pinnacle.fg('User3')
+  local rhs_bg = pinnacle.fg('Cursor')
+  local rhs_fg = pinnacle.fg('User3')
+
   pinnacle.set('User5', {
     bg = rhs_fg,
     fg = rhs_bg,
@@ -97,7 +98,7 @@ local function update_highlight()
     bg = darker['bg'],
     fg = darker['fg']
   })
-  
+
   pinnacle.set('User9', darker)
 
   pinnacle.link('StatusLineNC', 'User1')

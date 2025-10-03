@@ -1,6 +1,6 @@
 return {
   { 'AndrewRadev/splitjoin.vim', lazy = false },
-  { 'chriskempson/base16-vim', lazy = false },
+  -- { 'chriskempson/base16-vim', lazy = false },
   { 'mechatroner/rainbow_csv' },
   { 'pangloss/vim-javascript' },
   { 'tmux-plugins/vim-tmux' },
