@@ -51,3 +51,4 @@ vim.opt.visualbell = false
 vim.opt.whichwrap:append("<,>,h,l")
 vim.opt.wrap = false
 vim.opt.writebackup = false
+vim.opt.signcolumn = "yes"

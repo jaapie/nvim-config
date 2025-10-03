@@ -2,14 +2,37 @@ return {
   { 'AndrewRadev/splitjoin.vim', lazy = false },
   -- { 'chriskempson/base16-vim', lazy = false },
   { 'mechatroner/rainbow_csv' },
-  { 'pangloss/vim-javascript' },
-  { 'tmux-plugins/vim-tmux' },
+  -- { 'pangloss/vim-javascript' },
+  -- { 'tmux-plugins/vim-tmux' },
   { 'tpope/vim-abolish', lazy = false },
   { 'tpope/vim-commentary', lazy = false },
   { 'tpope/vim-dadbod' },
   { 'tpope/vim-dispatch', lazy = false },
   { 'tpope/vim-markdown' },
   { 'tpope/vim-projectionist', lazy = false },
+  { 'tpope/vim-ragtag', lazy = false },
+  { 'tpope/vim-repeat', lazy = false },
+  { 'tpope/vim-speeddating', lazy = false },
+  { 'tpope/vim-surround', lazy = false },
+  { 'tpope/vim-unimpaired', lazy = false },
+  { 'itmammoth/doorboy.vim', lazy = false },
+  -- 'tpope/vim-fugitive',
+  -- {
+  --   'wincent/command-t',
+  --   lazy = false,
+  --   config = function()
+  --     require('wincent.commandt').setup()
+  --   end
+  -- },
+  { 'wincent/pinnacle', lazy = false },
+  {
+    'thoughtbot/vim-rspec',
+    lazy = false,
+    config = function ()
+      vim.g.rspec_command = '!bundle exec rspec {spec}'
+    end
+  },
+  -- 'mfussenegger/nvim-lint',
   {
     'vim-ruby/vim-ruby',
     lazy = false,
@@ -30,21 +53,4 @@ return {
   { 'tpope/vim-endwise', lazy = false },
   { 'tpope/vim-bundler' },
   { 'tpope/vim-rails', lazy = false },
-  { 'tpope/vim-ragtag', lazy = false },
-  { 'tpope/vim-repeat', lazy = false },
-  { 'tpope/vim-speeddating', lazy = false },
-  { 'tpope/vim-surround', lazy = false },
-  { 'tpope/vim-unimpaired', lazy = false },
-  { 'itmammoth/doorboy.vim', lazy = false },
-  -- 'tpope/vim-fugitive',
-  -- {
-  --   'wincent/command-t',
-  --   lazy = false,
-  --   config = function()
-  --     require('wincent.commandt').setup()
-  --   end
-  -- },
-  { 'wincent/pinnacle', lazy = false },
-  { 'thoughtbot/vim-rspec', lazy = false },
-  -- 'mfussenegger/nvim-lint',
 }
