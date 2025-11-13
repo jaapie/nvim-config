@@ -22,9 +22,7 @@ return {
                                                 vim.lsp.protocol.make_client_capabilities(),
                                                 cmp_nvim_lsp.default_capabilities())
 
-      local lspconfig = require("lspconfig")
-
-      lspconfig.ruby_lsp.setup({
+      vim.lsp.config('ruby_lsp', {
         capabilities = capabilities,
         cmd = { "ruby-lsp" },
         init_options = {
@@ -46,18 +44,22 @@ return {
         }
       })
 
+      vim.lsp.enable({'ruby_lsp'})
+      vim.lsp.enable({'stimulus_ls'})
+
       -- lspconfig.solargraph.setup({
       --   capabilities = capabilities
       -- })
 
       if vim.fs.root(0, {'sorbet/config'}) then
-        lspconfig.sorbet.setup({
+        vim.lsp.config('sorbet', {
           capabilities = capabilities,
           cmd = { "bundle", "exec", "srb", "tc", "--disable-watchman", "--lsp",  vim.fs.root(0, {".git", "Gemfile", "sorbet/config"})},
         })
+        vim.lsp.enable({'sorbet'} )
       end
 
-      lspconfig.html.setup({
+      vim.lsp.config('html', {
         capabilities = capabilities,
         filetypes = { "html", "eruby" },
         configurationSection = { "html", "css", "javascript" },
@@ -68,7 +70,7 @@ return {
         provideFormatter = true
       })
 
-      lspconfig.lua_ls.setup({ capabilities = capabilities })
+      vim.lsp.enable({'html'})
 
       local opts = { noremap = true, silent = true }
       vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts) -- Displays hover information about the symbol under the cursor
@@ -84,60 +86,63 @@ return {
       vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev({float = true})<cr>', opts) -- Move to the previous diagnostic
       vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next({float = true})<cr>', opts) -- Move to the next diagnostic
 
-      lspconfig.tailwindcss.setup{
-        capabilities = capabilities,
-        init_options = {
-          userLanguages = {
-            eruby = "erb",
-          },
-        },
-        handlers = {
-          ["tailwindcss/getConfiguration"] = function(_, _, params, _, bufnr, _)
-            vim.lsp.buf_notify(bufnr, "tailwindcss/getConfigurationResponse", { _id = params._id })
-          end,
-        },
-        settings = {
-          includeLanguages = {
-            erb = "html",
-            ruby = "html",
-          },
-          tailwindCSS = {
-            lint = {
-              cssConflict = "warning",
-              invalidApply = "error",
-              invalidConfigPath = "error",
-              invalidScreen = "error",
-              invalidTailwindDirective = "error",
-              invalidVariant = "error",
-              recommendedVariantOrder = "warning",
-            },
-            experimental = {
-              classRegex = {
-                [[class= "([^"]*)]],
-                [[class: "([^"]*)]],
-                '~H""".*class="([^"]*)".*"""',
-                '~F""".*class="([^"]*)".*"""',
-              },
-            },
-            validate = true,
-          },
-        },
-        filetypes = {
-          "css",
-          "scss",
-          "sass",
-          "html",
-          "heex",
-          "elixir",
-          "eruby",
-          "javascript",
-          "javascriptreact",
-          "typescript",
-          "typescriptreact",
-          "rust",
-          "svelte",
-        },
-      }
+      vim.diagnostic.config({ virtual_text = false, virtual_lines = { current_line = true }, })
+
+      -- vim.lsp.config('tailwindcss', {
+      --   capabilities = capabilities,
+      --   init_options = {
+      --     userLanguages = {
+      --       eruby = "erb",
+      --     },
+      --   },
+      --   handlers = {
+      --     ["tailwindcss/getConfiguration"] = function(_, _, params, _, bufnr, _)
+      --       vim.lsp.buf_notify(bufnr, "tailwindcss/getConfigurationResponse", { _id = params._id })
+      --     end,
+      --   },
+      --   settings = {
+      --     includeLanguages = {
+      --       erb = "html",
+      --       ruby = "html",
+      --     },
+      --     tailwindCSS = {
+      --       lint = {
+      --         cssConflict = "warning",
+      --         invalidApply = "error",
+      --         invalidConfigPath = "error",
+      --         invalidScreen = "error",
+      --         invalidTailwindDirective = "error",
+      --         invalidVariant = "error",
+      --         recommendedVariantOrder = "warning",
+      --       },
+      --       experimental = {
+      --         classRegex = {
+      --           [[class= "([^"]*)]],
+      --           [[class: "([^"]*)]],
+      --           '~H""".*class="([^"]*)".*"""',
+      --           '~F""".*class="([^"]*)".*"""',
+      --         },
+      --       },
+      --       validate = true,
+      --     },
+      --   },
+      --   filetypes = {
+      --     "css",
+      --     "scss",
+      --     "sass",
+      --     "html",
+      --     "heex",
+      --     "elixir",
+      --     "eruby",
+      --     "javascript",
+      --     "javascriptreact",
+      --     "typescript",
+      --     "typescriptreact",
+      --     "rust",
+      --     "svelte",
+      --   },
+      -- })
+      vim.lsp.enable({'tailwindcss'})
     end
   }
 }
