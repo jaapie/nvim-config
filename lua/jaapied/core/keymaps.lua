@@ -18,6 +18,10 @@ vim.keymap.set('i', '<right>', '<nop>', keymap_opts)
 vim.keymap.set('c', '<C-a>', '<Home>', keymap_opts)
 vim.keymap.set('c', '<C-e>', '<End>', keymap_opts)
 
+-- CHECK THIS: doorboy.vim intercepts bare `(`, `{`, `[` in insert mode and
+-- inserts the closing pair immediately. If doorboy is active, typing `(<cr>`
+-- will never reach these mappings — doorboy turns `(` into `()` first, leaving
+-- `)<cr>` in the buffer instead. Test by disabling doorboy.vim if these stop working.
 vim.keymap.set('i', '(<cr>', '(<cr>)<c-o>O')
 vim.keymap.set('i', '{<cr>', '{<cr>}<c-o>O')
 vim.keymap.set('i', '[<cr>', '[<cr>]<c-o>O')
