@@ -32,11 +32,12 @@ return {
       vim.lsp.enable({ 'ruby_lsp' })
       vim.lsp.enable({ 'stimulus_ls' })
 
-      if vim.fs.root(0, { 'sorbet/config' }) then
+      local sorbet_root = vim.fs.root(0, { 'sorbet/config' })
+      if sorbet_root then
         vim.lsp.config('sorbet', {
           capabilities = capabilities,
-          cmd = { "bundle", "exec", "srb", "tc", "--disable-watchman", "--lsp",
-            vim.fs.root(0, { ".git", "Gemfile", "sorbet/config" }) },
+          cmd = { "bundle", "exec", "srb", "tc", "--disable-watchman", "--lsp" },
+          root_dir = sorbet_root,
         })
         vim.lsp.enable({ 'sorbet' })
       end
