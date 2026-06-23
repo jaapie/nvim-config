@@ -16,7 +16,6 @@ return {
     end
   },
   { 'tpope/vim-rails', lazy = false },
-  { 'tpope/vim-endwise', lazy = false },
   { 'tpope/vim-bundler' },
   {
     'thoughtbot/vim-rspec',
