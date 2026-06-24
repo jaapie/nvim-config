@@ -1,13 +1,4 @@
 return {
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    dependencies = { 'RRethy/nvim-treesitter-endwise' },
-    config = function()
-      require('nvim-treesitter.configs').setup({
-        ensure_installed = { 'ruby' },
-        endwise = { enable = true },
-      })
-    end,
-  },
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', lazy = false },
+  { 'RRethy/nvim-treesitter-endwise', lazy = false },
 }
