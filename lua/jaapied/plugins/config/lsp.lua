@@ -11,7 +11,7 @@ return {
         capabilities = capabilities,
         cmd = { "ruby-lsp" },
         init_options = {
-          formatter = "rubocop",
+          formatter = "auto",
           linters = { "rubocop" },
           addonSettings = {
             ["Ruby LSP Rails"] = {
