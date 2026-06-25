@@ -11,6 +11,12 @@ return {
       if not vim.tbl_contains(installed, 'ruby') then
         require('nvim-treesitter').install('ruby')
       end
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'ruby',
+        callback = function()
+          vim.treesitter.start()
+        end,
+      })
     end,
   },
   { 'RRethy/nvim-treesitter-endwise', lazy = false },

@@ -3,10 +3,9 @@ return {
     'neovim/nvim-lspconfig',
     lazy = false,
     config = function()
-      local cmp_nvim_lsp = require("cmp_nvim_lsp")
       local capabilities = vim.tbl_deep_extend("force", {},
         vim.lsp.protocol.make_client_capabilities(),
-        cmp_nvim_lsp.default_capabilities())
+        require("cmp_nvim_lsp").default_capabilities())
 
       vim.lsp.config('ruby_lsp', {
         capabilities = capabilities,
