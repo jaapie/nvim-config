@@ -9,7 +9,8 @@ Personal Neovim configuration, evolved from my old [Vim dotfiles](https://github
 - **Formatting/linting** via none-ls: stylua, erb-lint
 - **Fuzzy finding** via Telescope (files, buffers, live grep)
 - **File explorer** via oil.nvim (`-` to open from any buffer)
-- **Ruby/Rails**: vim-ruby, vim-rails, vim-rspec, vim-endwise, vim-projectionist
+- **Syntax**: nvim-treesitter (Ruby), with treesitter-based highlighting replacing regex syntax
+- **Ruby/Rails**: vim-ruby, vim-rails, vim-rspec, nvim-treesitter-endwise, vim-projectionist
 - **Editing**: vim-surround, vim-commentary, vim-unimpaired, splitjoin, doorboy, vim-abolish
 - **Colorscheme**: Catppuccin Mocha
 
