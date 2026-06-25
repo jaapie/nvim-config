@@ -31,15 +31,14 @@ return {
       vim.lsp.enable({ 'ruby_lsp' })
       vim.lsp.enable({ 'stimulus_ls' })
 
-      local sorbet_root = vim.fs.root(0, { 'sorbet/config' })
-      if sorbet_root then
-        vim.lsp.config('sorbet', {
-          capabilities = capabilities,
-          cmd = { "bundle", "exec", "srb", "tc", "--disable-watchman", "--lsp" },
-          root_dir = sorbet_root,
-        })
-        vim.lsp.enable({ 'sorbet' })
-      end
+      vim.lsp.config('sorbet', {
+        capabilities = capabilities,
+        cmd = { "bundle", "exec", "srb", "tc", "--disable-watchman", "--lsp" },
+        root_dir = function(bufnr)
+          return vim.fs.root(bufnr, { 'sorbet/config' })
+        end,
+      })
+      vim.lsp.enable({ 'sorbet' })
 
       vim.lsp.config('html', {
         capabilities = capabilities,
