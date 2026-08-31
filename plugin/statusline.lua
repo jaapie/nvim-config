@@ -183,6 +183,21 @@ local function set_inactive_statusline()
     .. '%*'   -- Reset highlight group.
 end
 
+-- Floating windows (Telescope's prompt/results/preview among them) manage
+-- their own borders and shouldn't get a statusline row forced onto them.
+local function is_floating_win()
+  return vim.api.nvim_win_get_config(0).relative ~= ''
+end
+
+local function unless_floating(fn)
+  return function()
+    if is_floating_win() then
+      return
+    end
+    fn()
+  end
+end
+
 local autocommands = {
   {
     event = 'ColorScheme',
@@ -193,15 +208,15 @@ local autocommands = {
   }, {
     event = {'BufWritePost','FileWritePost','TextChanged','TextChangedI'},
     pattern = '*',
-    callback = set_active_statusline
+    callback = unless_floating(set_active_statusline)
   }, {
     event = {'BufWinEnter','BufEnter','WinEnter'},
     pattern = '*',
-    callback = set_active_statusline
+    callback = unless_floating(set_active_statusline)
   }, {
     event = {'BufLeave','WinLeave'},
     pattern = '*',
-    callback = set_inactive_statusline
+    callback = unless_floating(set_inactive_statusline)
   }
 }
 
