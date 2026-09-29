@@ -46,8 +46,12 @@ return {
       vim.lsp.config('sorbet', {
         capabilities = capabilities,
         cmd = { "bundle", "exec", "srb", "tc", "--disable-watchman", "--lsp" },
-        root_dir = function(bufnr)
-          return vim.fs.root(bufnr, { 'sorbet/config' })
+        root_dir = function(bufnr, on_dir)
+          -- vim.fs.root returns the marker's parent (sorbet), so step up to the project root
+          local sorbet_dir = vim.fs.root(bufnr, { 'sorbet/config' })
+          if sorbet_dir then
+            on_dir(vim.fs.dirname(sorbet_dir))
+          end
         end,
       })
       vim.lsp.enable({ 'sorbet' })
