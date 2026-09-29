@@ -29,6 +29,18 @@ return {
       })
 
       vim.lsp.enable({ 'ruby_lsp' })
+
+      -- Without a root, stimulus-language-server scans its cwd (often ~) until V8 runs out of heap
+      vim.lsp.config('stimulus_ls', {
+        workspace_required = true,
+        root_dir = function(bufnr, on_dir)
+          -- vim.fs.root returns the marker's parent (app/javascript), so step up to the project root
+          local js_dir = vim.fs.root(bufnr, { 'app/javascript/controllers' })
+          if js_dir then
+            on_dir(vim.fs.dirname(vim.fs.dirname(js_dir)))
+          end
+        end,
+      })
       vim.lsp.enable({ 'stimulus_ls' })
 
       vim.lsp.config('sorbet', {
