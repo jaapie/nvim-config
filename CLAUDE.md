@@ -21,7 +21,7 @@ Personal Neovim configuration for Jacob Degeling. Written in Lua, structured und
    - `config/*.lua` — each file returns a lazy.nvim plugin spec (or a list of specs)
 
 **`after/plugin/`** — runs after all plugins load, used for highlight overrides and autocmds that depend on plugin state:
-- `colour.lua` — float/border highlight tweaks using wincent/pinnacle
+- `colour.lua` — float/border highlight tweaks using wincent/pinnacle, reapplied on every `ColorScheme` event
 - `lsp_highlights.lua` — diagnostic underline styles (undercurl)
 - `autocmds.lua` — filetype-specific autocmds (indentation, omnifunc, commentstring)
 
@@ -38,7 +38,16 @@ Personal Neovim configuration for Jacob Degeling. Written in Lua, structured und
 | `ruby.lua` | vim-ruby, vim-rails, vim-rspec, vim-endwise, vim-projectionist |
 | `editing.lua` | vim-surround, vim-commentary, vim-repeat, vim-unimpaired, splitjoin, doorboy, vim-abolish, vim-speeddating |
 | `text-objects.lua` | vim-textobj-css, vim-textobj-rubyblock |
-| `catppuccin.lua` | Active colorscheme (mocha flavour) |
+| `catppuccin.lua` | Fallback colorscheme (mocha flavour), used when not on Omarchy |
+| `omarchy.lua` | Omarchy's current theme plugin(s), built by `lua/jaapied/omarchy.lua` |
+
+## Colorscheme on Omarchy
+
+`lua/jaapied/omarchy.lua` makes Neovim follow the active Omarchy theme. When `~/.local/state/omarchy/current/theme/neovim.lua` exists, it reads that LazyVim-style spec, drops the `LazyVim/LazyVim` entry, and applies its `opts.colorscheme` itself, taking light/dark from the theme's `colors.toml` `mode`.
+
+- Theme plugins load as local `dir` plugins from the copies the `omarchy-nvim` package ships in `/etc/skel/.local/share/nvim/lazy/` — nothing is downloaded and they aren't in `lazy-lock.json`. Catppuccin is the exception (listed in `own`), since this config installs it itself.
+- Every Omarchy theme's plugin (including the one in Omarchy's `neovim.lua.tpl`, used by generated themes) is registered lazily, and a filesystem watcher on `~/.local/state/omarchy/current` reapplies the theme when it changes, so switching themes needs no restart.
+- Not on Omarchy, or the theme's plugin isn't shipped → catppuccin mocha.
 
 ## LSP setup details
 

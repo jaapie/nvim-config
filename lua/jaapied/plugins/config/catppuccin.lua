@@ -1,5 +1,9 @@
+local omarchy = require("jaapied.omarchy")
+
 return {
   "catppuccin/nvim",
+  -- On Omarchy the theme comes from omarchy.lua; catppuccin is only the fallback.
+  lazy = omarchy.active(),
   name = "catppuccin",
   priority = 1000,
   config = function()
@@ -56,6 +60,8 @@ return {
       --   -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
       -- },
     })
-    vim.cmd.colorscheme "catppuccin"
+    if not omarchy.active() then
+      vim.cmd.colorscheme "catppuccin"
+    end
   end
 }
