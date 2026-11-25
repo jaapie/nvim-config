@@ -15,6 +15,7 @@ Personal Neovim configuration for Jacob Degeling. Written in Lua, structured und
    - `commands.lua` — `filetype plugin indent on`, `syntax on`, `matchit`
    - `keymaps.lua` — global keymaps (leader = `<Space>`)
    - `autocommands.lua` — helper that wraps `nvim_create_autocmd`
+   - `filetypes.lua` — extra `vim.filetype.add` mappings (e.g. ngspice `*.cir`/`*.ckt`/`*.net` → `spice`)
 
 2. **`lua/jaapied/plugins/`** — plugin management via [lazy.nvim](https://github.com/folke/lazy.nvim):
    - `init.lua` — bootstraps lazy.nvim and imports all files under `plugins/config/` as plugin specs

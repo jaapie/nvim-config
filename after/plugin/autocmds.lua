@@ -34,6 +34,13 @@ local autocmds = {
       vim.opt_local.commentstring = '// %s'
     end
   }, {
+    event = 'FileType',
+    pattern = 'spice',
+    callback = function()
+      vim.opt_local.comments = ':*'
+      vim.opt_local.commentstring = '* %s'
+    end
+  }, {
     event = 'InsertEnter',
     pattern = { '*.html', '*.css', '*.scss' },
     callback = function ()
